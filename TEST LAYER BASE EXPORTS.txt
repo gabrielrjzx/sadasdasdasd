@@ -1,93 +1,142 @@
-${TEST_LAYER_BASE_EXPORTS} TEST_LAYER_EXPORT_LAYER_VK_GIPA=1 TEST_LAYER_EXPORT_LAYER_VK_GDPA=1)
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\layer\CMakeLists.txt:20:set(TEST_LAYER_VERSION_0_NAMED_GPA_EXPORTS ${TEST_LAYER_BASE_EXPORTS} TEST_LAYER_EXPORT_LAYER_NAMED_GIPA=1 TEST_LAYER_EXPORT_LAYER_NAMED_GDPA=1)
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\layer\CMakeLists.txt:21:set(TEST_LAYER_VERSION_1_EXPORTS ${TEST_LAYER_VERSION_0_EXPORTS} TEST_LAYER_EXPORT_OVERRIDE_GIPA=1 TEST_LAYER_EXPORT_OVERRIDE_GDPA=1)
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\layer\CMakeLists.txt:22:set(TEST_LAYER_VERSION_2_EXPORTS ${TEST_LAYER_VERSION_1_EXPORTS} TEST_LAYER_EXPORT_GET_PHYSICAL_DEVICE_PROC_ADDR=1
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\layer\CMakeLists.txt:23:    LAYER_EXPORT_NEGOTIATE_LOADER_LAYER_INTERFACE_VERSION=1)
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\layer\CMakeLists.txt:26:AddSharedLibrary(test_layer_export_version_0 DEF_FILE test_layer_0 SOURCES test_layer.cpp DEFINITIONS ${TEST_LAYER_VERSION_0_EXPORTS})
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\layer\CMakeLists.txt:27:AddSharedLibrary(test_layer_export_version_0_named_gpa DEF_FILE test_layer_0_named_gpa SOURCES test_layer.cpp DEFINITIONS ${TEST_LAYER_VERSION_0_NAMED_GPA_EXPORTS})
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\layer\CMakeLists.txt:28:AddSharedLibrary(test_layer_export_version_1 DEF_FILE test_layer_1 SOURCES test_layer.cpp DEFINITIONS ${TEST_LAYER_VERSION_1_EXPORTS})
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\layer\CMakeLists.txt:29:AddSharedLibrary(test_layer_export_version_2 DEF_FILE test_layer_2 SOURCES test_layer.cpp DEFINITIONS ${TEST_LAYER_VERSION_2_EXPORTS})
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\layer\CMakeLists.txt:33:set(WRAP_LAYER_VERSION_1_EXPORTS
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\layer\CMakeLists.txt:37:set(WRAP_LAYER_VERSION_2_EXPORTS
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\layer\CMakeLists.txt:41:set(WRAP_LAYER_VERSION_3_EXPORTS
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\layer\CMakeLists.txt:49:AddSharedLibrary(test_layer_wrap_objects_1 DEF_FILE wrap_objects_1 SOURCES wrap_objects.cpp DEFINITIONS ${WRAP_LAYER_VERSION_1_EXPORTS})
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\layer\CMakeLists.txt:50:AddSharedLibrary(test_layer_wrap_objects_2 DEF_FILE wrap_objects_2 SOURCES wrap_objects.cpp DEFINITIONS ${WRAP_LAYER_VERSION_2_EXPORTS})
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\layer\CMakeLists.txt:51:AddSharedLibrary(test_layer_wrap_objects_3 DEF_FILE wrap_objects_3 SOURCES wrap_objects.cpp DEFINITIONS ${WRAP_LAYER_VERSION_3_EXPORTS})
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\README.md:114:This is due to some functions being used to query other functions, which the shim library intercepts and returns its own versions of system functions instead, such as `CreateDXGIFactory1`.
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\README.md:168:  * Contains the name and api version of the icd or layer binary
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\shim\CMakeLists.txt:5:# Licensed under the Apache License, Version 2.0 (the "License");
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\util\CMakeLists.txt:5:# Licensed under the Apache License, Version 2.0 (the "License");
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\framework\util\CMakeLists.txt:63:        # workaround regression in macOS SDK 15 when address sanitizer is enabled in debug mode
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\integration\CMakeLists.txt:5:# Licensed under the Apache License, Version 2.0 (the "License");
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\integration\CMakeLists.txt:17:cmake_minimum_required(VERSION 3.22.1)
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\integration\CMakeLists.txt:29:if (NOT DEFINED VulkanLoader_VERSION)
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\integration\CMakeLists.txt:30:    message(FATAL_ERROR "VulkanLoader_VERSION not defined!")
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\integration\CMakeLists.txt:32:message(STATUS "VulkanLoader_VERSION = ${VulkanLoader_VERSION}")
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\live_verification\CMakeLists.txt:5:# Licensed under the Apache License, Version 2.0 (the "License");
-tools\rexglue-sdk\thirdparty\vulkan-loader\tests\live_verification\dynamic_loader_behavior\CMakeLists.txt:5:# Licensed under the Apache License, Version 2.0 (the "License");
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\CHANGELOG.md:18:- Fixed an assert in `vmaCreateAllocator` function incorrectly failing when Vulkan version 1.4 is used (#457).
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\CHANGELOG.md:68:It has been a long time since the previous official release, so hopefully everyone has been using the latest code from "master" branch, which is always maintained in a good state, not the old version. For completeness, here is the list of changes since v2.3.0. The major version number has changed, so there are some compatibility-breaking changes, but the basic API stays the same and is mostly backward-compatible.
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\CHANGELOG.md:123:    - Added member `VmaAllocatorCreateInfo::vulkanApiVersion`.
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\CHANGELOG.md:145:- Updated recording CSV file format version to 1.8, to support new functions.
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\CHANGELOG.md:172:- Updated recording CSV file format version to 1.5, to support new functions.
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\CMakeLists.txt:23:cmake_minimum_required(VERSION 3.15...3.26)
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\CMakeLists.txt:25:project(VMA VERSION 3.3.0 LANGUAGES CXX)
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\CMakeLists.txt:32:if (CMAKE_VERSION VERSION_LESS "3.21")
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\CMakeLists.txt:46:    write_basic_package_version_file(VulkanMemoryAllocatorConfigVersion.cmake COMPATIBILITY SameMajorVersion ARCH_INDEPENDENT)
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\CMakeLists.txt:47:    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/VulkanMemoryAllocatorConfigVersion.cmake" DESTINATION "share/cmake/VulkanMemoryAllocator")
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\README.md:5:**Documentation:** Browse online: [Vulkan Memory Allocator](https://gpuopen-librariesandsdks.github.io/VulkanMemoryAllocator/html/) (generated from Doxygen-style comments in [include/vk_mem_alloc.h](include/vk_mem_alloc.h))
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\README.md:13:[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator.svg)](http://isitmaintained.com/project/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator "Average time to resolve an issue")
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\README.md:47:- Support for extensions (and equivalent functionality included in new Vulkan versions):
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\README.md:106:# By default CMake picks the newest version of Visual Studio it can use
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\README.md:141:The VulkanMemoryAllocator port in vcpkg is kept up to date by Microsoft team members and community contributors. If the version is out of date, please [create an issue or pull request](https://github.com/Microsoft/vcpkg) on the vcpkg repository.
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\README.md:145:The release comes with precompiled binary executable for "VulkanSample" application which contains test suite. It is compiled using Visual Studio 2022, so it requires appropriate libraries to work, including "MSVCP140.dll", "VCRUNTIME140.dll", "VCRUNTIME140_1.dll". If the launch fails with error message telling about those files missing, please download and install [Microsoft Visual C++ Redistributable](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads), "X64" version.
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\README.md:149:See **[Documentation](https://gpuopen-librariesandsdks.github.io/VulkanMemoryAllocator/html/)**.
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\README.md:161:- **[Anvil](https://github.com/GPUOpen-LibrariesAndSDKs/Anvil)** - cross-platform framework for Vulkan. License: MIT.
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\README.md:168:- **[PowerVR SDK](https://github.com/powervr-graphics/Native_SDK)** - C++ cross-platform 3D graphics SDK, from Imagination. License: MIT.
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\README.md:183:- **[D3D12 Memory Allocator](https://github.com/GPUOpen-LibrariesAndSDKs/D3D12MemoryAllocator)** - equivalent library for Direct3D 12. License: MIT.
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\README.md:191:- **[vulkan-malloc](https://github.com/dylanede/vulkan-malloc)** - Vulkan memory allocation library for Rust. Based on version 1 of this library. Author: Dylan Ede (@dylanede). License: MIT / Apache 2.0.
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\tools\GpuMemDumpVis\README.md:4:It is an auxiliary tool that can visualize internal state of [Vulkan Memory Allocator](https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator) and
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\tools\GpuMemDumpVis\README.md:5:[D3D12 Memory Allocator](https://github.com/GPUOpen-LibrariesAndSDKs/D3D12MemoryAllocator) libraries on a picture.
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\tools\GpuMemDumpVis\README.md:25:* `-v` - to see program version number
-tools\rexglue-sdk\thirdparty\vulkan-memory-allocator\tools\GpuMemDumpVis\README.md:49:Warning! Current version of the tool shows incorrect result when allocations alias (overlap) in memory, as it only looks at sizes of the allocations, not their offsets.
-tools\rexglue-sdk\thirdparty\xxHash\cli\xxhsum.1.md:54:* `-V`, `--version`:
-tools\rexglue-sdk\thirdparty\xxHash\cli\xxhsum.1.md:55:  Displays xxhsum version and exits
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:8:cmake_minimum_required (VERSION 3.10 FATAL_ERROR)
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:12:file(STRINGS "${XXHASH_DIR}/xxhash.h" XXHASH_VERSION_MAJOR REGEX "^#define XXH_VERSION_MAJOR +([0-9]+) *$")
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:13:string(REGEX REPLACE "^#define XXH_VERSION_MAJOR +([0-9]+) *$" "\\1" XXHASH_VERSION_MAJOR "${XXHASH_VERSION_MAJOR}")
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:14:file(STRINGS "${XXHASH_DIR}/xxhash.h" XXHASH_VERSION_MINOR REGEX "^#define XXH_VERSION_MINOR +([0-9]+) *$")
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:15:string(REGEX REPLACE "^#define XXH_VERSION_MINOR +([0-9]+) *$" "\\1" XXHASH_VERSION_MINOR "${XXHASH_VERSION_MINOR}")
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:16:file(STRINGS "${XXHASH_DIR}/xxhash.h" XXHASH_VERSION_RELEASE REGEX "^#define XXH_VERSION_RELEASE +([0-9]+) *$")
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:17:string(REGEX REPLACE "^#define XXH_VERSION_RELEASE +([0-9]+) *$" "\\1" XXHASH_VERSION_RELEASE "${XXHASH_VERSION_RELEASE}")
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:18:set(XXHASH_VERSION_STRING "${XXHASH_VERSION_MAJOR}.${XXHASH_VERSION_MINOR}.${XXHASH_VERSION_RELEASE}")
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:19:set(XXHASH_LIB_VERSION ${XXHASH_VERSION_STRING})
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:20:set(XXHASH_LIB_SOVERSION "${XXHASH_VERSION_MAJOR}")
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:21:mark_as_advanced(XXHASH_VERSION_MAJOR XXHASH_VERSION_MINOR XXHASH_VERSION_RELEASE XXHASH_VERSION_STRING XXHASH_LIB_VERSION XXHASH_LIB_SOVERSION)
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:23:if("${CMAKE_VERSION}" VERSION_LESS "3.13")
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:24:    #message(WARNING "CMake ${CMAKE_VERSION} has no CMP0077 policy: options will erase uncached/untyped normal vars!")
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:30:    VERSION ${XXHASH_VERSION_STRING}
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:44:    if("${CMAKE_VERSION}" VERSION_LESS "3.12")
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:104:  SOVERSION "${XXHASH_LIB_SOVERSION}"
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:105:  VERSION "${XXHASH_VERSION_STRING}")
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:160:  set(xxHash_VERSION_CONFIG "${PROJECT_BINARY_DIR}/xxHashConfigVersion.cmake")
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:164:  write_basic_package_version_file(${xxHash_VERSION_CONFIG}
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:165:    VERSION ${XXHASH_VERSION_STRING}
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:166:    COMPATIBILITY AnyNewerVersion)
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:175:  install(FILES ${xxHash_PROJECT_CONFIG} ${xxHash_VERSION_CONFIG}
-tools\rexglue-sdk\thirdparty\xxHash\cmake_unofficial\CMakeLists.txt:187:  set(VERSION "${XXHASH_VERSION_STRING}")
-tools\rexglue-sdk\thirdparty\xxHash\doc\xxhash_spec.md:17:### Version
-tools\rexglue-sdk\thirdparty\xxHash\doc\xxhash_spec.md:341:XXH3 comes in two different versions: XXH3-64 and XXH3-128 (or XXH128), producing 64 and 128 bits of output, respectively.
-tools\rexglue-sdk\thirdparty\xxHash\doc\xxhash_spec.md:386:The seed and the secret can be optionally specified using the `*_withSecret` and `*_withSeed` versions of the hash function.
-tools\rexglue-sdk\thirdparty\xxHash\doc\xxhash_spec.md:428:The algorithm uses byte-swap operations. The byte-swap operation reverses the byte order in a 32-bit or 64-bit value. It is denoted `bswap32` and `bswap64` for its 32-bit and 64-bit versions, respectively.
-tools\rexglue-sdk\thirdparty\xxHash\doc\xxhash_spec.md:591:  u64 dataWords1[2] = data1[0:16]; // again, little-endian conversion
-tools\rexglue-sdk\thirdparty\xxHash\doc\xxhash_spec.md:816:Version changes
-tools\rexglue-sdk\thirdparty\xxHash\README.md:126:- `XXH_ENABLE_AUTOVECTORIZE`: Auto-vectorization may be triggered for XXH32 and XXH64, depending on cpu vector capabilities and compiler version.
-tools\rexglue-sdk\thirdparty\xxHash\README.md:127:                              Note: auto-vectorization tends to be triggered more easily with recent versions of `clang`.
-tools\rexglue-sdk\thirdparty\xxHash\README.md:160:                         It may also be required to successfully compile using `-Og`, depending on compiler version.
-tools\rexglue-sdk\thirdparty\xxHash\README.md:187:The xxHash port in vcpkg is kept up to date by Microsoft team members and community contributors. If the version is out of date, please [create an issue or pull request](https://github.com/Microsoft/vcpkg) on the vcpkg repository.
-tools\rexglue-sdk\thirdparty\xxHash\README.md:252:Beyond the C reference version,
-tools\rexglue-sdk\thirdparty\xxHash\README.md:264:[![Packaging status](https://repology.org/badge/vertical-allrepos/xxhash.svg)](https://repology.org/project/xxhash/versions)
-tools\rexglue-sdk\thirdparty\xxHash\README.md:270:- Mathias Westerdahl, aka @JCash, for introducing the first version of `XXH64`
-tools\rexglue-sdk\thirdparty\xxHash\SECURITY.md:3:## Supported Versions
+C:\Users\gabrielzx\Desktop\vig8>cd C:\Users\gabrielzx\Desktop\vig8
+
+C:\Users\gabrielzx\Desktop\vig8>findstr /S /N /I "vig8_rexglue.toml" *.md *.txt *.cmake CMakeLists.txt
+docs\binary-analysis.md:71:31 manual function definitions in `vig8_rexglue.toml`:
+docs\xenonrecomp-workflow.md:38:Create a TOML config (e.g., `config/vig8_rexglue.toml`) with:
+README.md:117:│   ├── vig8_rexglue.toml          # ReXGlue codegen config (function overrides, switch tables)
+
+C:\Users\gabrielzx\Desktop\vig8>findstr /S /N /I "rexglue.exe codegen" *.md *.txt *.cmake CMakeLists.txt
+docs\xenonrecomp-workflow.md:7:- **Legacy (raw XenonRecomp)** — Manual codegen + hand-built runtime (used for initial bring-up)
+docs\xenonrecomp-workflow.md:8:- **Current (ReXGlue SDK)** — Integrated codegen + full runtime SDK with GPU, audio, and input
+docs\xenonrecomp-workflow.md:18:The ReXGlue SDK wraps XenonRecomp's codegen with a complete Xbox 360 runtime:
+docs\xenonrecomp-workflow.md:36:### Step 2: Create the Codegen Config
+docs\xenonrecomp-workflow.md:60:### Step 3: Run Codegen
+docs\xenonrecomp-workflow.md:63:tools/rexglue-sdk/out/install/win-amd64/bin/rexglue.exe codegen
+docs\xenonrecomp-workflow.md:73:### Step 4: Apply Post-Codegen Fixes
+docs\xenonrecomp-workflow.md:75:**CRITICAL:** Codegen overwrites `vig8_init.h` every run. You must re-apply:
+docs\xenonrecomp-workflow.md:99:- **Unimplemented instructions** — Override `PPC_UNIMPLEMENTED` or fix in codegen
+generated\sources.cmake:1:# Auto-generated by rexglue codegen - DO NOT EDIT
+PROGRESS.md:359:  - Codegen via `rexglue.exe codegen` (replaces manual XenonRecomp + XenonAnalyse)
+PROGRESS.md:365:  - Must re-apply after every `rexglue codegen` run (it overwrites vig8_init.h)
+PROGRESS.md:394:- vig8_init.h gets overwritten by codegen — must maintain a post-codegen fixup step
+README.md:90:# 4. Run codegen (generates C++ from XEX binary)
+README.md:91:tools/rexglue-sdk/out/install/win-amd64/bin/rexglue.exe codegen
+README.md:117:│   ├── vig8_rexglue.toml          # ReXGlue codegen config (function overrides, switch tables)
+README.md:120:├── generated/                     # ReXGlue codegen output
+README.md:154:2. **ReXGlue codegen** translates ~8,000 PowerPC functions into C++ using the config's function boundaries and switch table definitions
+README.md:175:- **Cross-function gotos** — Static analysis sometimes splits one function into two; the codegen produces invalid goto-across-functions that must be manually merged
+README.md:196:This project serves as a reference for static recompilation of other Xbox 360 XBLA titles using the ReXGlue SDK. The approach — XenonRecomp codegen + safe macro overrides + stub implementations for missing APIs — is directly applicable to other games. Key transferable pieces:
+tools\rexglue-sdk\cmake\embed_templates.cmake:34:        "namespace rex::codegen::embedded {\n"
+tools\rexglue-sdk\cmake\embed_templates.cmake:36:        "}  // namespace rex::codegen::embedded\n"
+tools\rexglue-sdk\cmake\embed_templates.cmake:50:    "namespace rex::codegen {\n\n"
+tools\rexglue-sdk\cmake\embed_templates.cmake:57:    "}  // namespace rex::codegen\n"
+tools\rexglue-sdk\cmake\rexglue_install.cmake:10:set_target_properties(rexcodegen PROPERTIES EXPORT_NAME codegen)
+tools\rexglue-sdk\cmake\rexglue_install.cmake:25:        SPIRV glslang MachineIndependent GenericCodeGen OSDependent OGLCompiler  # glslang
+tools\rexglue-sdk\cmake\rexglue_install.cmake:54:# A Debug codegen tool runs an order of magnitude slower, so only Release ships.
+tools\rexglue-sdk\cmake\rexglue_link_audit.cmake:7:# the duplicate cvar registrations and the codegen SIGSEGV on exit.
+tools\rexglue-sdk\CMakeLists.txt:262:add_subdirectory(src/codegen)
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\Export\3382210432fb09e8a8d2395d313f3a0f\rexglueTargets-release.cmake:112:  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/rexglue.exe"
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\Export\3382210432fb09e8a8d2395d313f3a0f\rexglueTargets-release.cmake:116:list(APPEND _cmake_import_check_files_for_rex::rexglue "${_IMPORT_PREFIX}/bin/rexglue.exe" )
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\TargetDirectories.txt:135:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/build/win-amd64/src/codegen/CMakeFiles/embed_templates.dir
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\TargetDirectories.txt:136:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/build/win-amd64/src/codegen/CMakeFiles/rexcodegen.dir
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\TargetDirectories.txt:137:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/build/win-amd64/src/codegen/CMakeFiles/package.dir
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\TargetDirectories.txt:138:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/build/win-amd64/src/codegen/CMakeFiles/package_source.dir
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\TargetDirectories.txt:139:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/build/win-amd64/src/codegen/CMakeFiles/edit_cache.dir
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\TargetDirectories.txt:140:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/build/win-amd64/src/codegen/CMakeFiles/rebuild_cache.dir
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\TargetDirectories.txt:141:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/build/win-amd64/src/codegen/CMakeFiles/install.dir
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\TargetDirectories.txt:142:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/build/win-amd64/src/codegen/CMakeFiles/install/local.dir
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\TargetDirectories.txt:143:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/build/win-amd64/src/codegen/CMakeFiles/install/strip.dir
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\VerifyGlobs.cmake:3070:# INJA_TEMPLATE_FILES at src/codegen/CMakeLists.txt:57 (file)
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\VerifyGlobs.cmake:3073:  "C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/resources/templates/codegen/_indirect_call.inja"
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\VerifyGlobs.cmake:3074:  "C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/resources/templates/codegen/dll_targets_cmake.inja"
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\VerifyGlobs.cmake:3075:  "C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/resources/templates/codegen/funcs_h.inja"
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\VerifyGlobs.cmake:3076:  "C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/resources/templates/codegen/init_cpp.inja"
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\VerifyGlobs.cmake:3077:  "C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/resources/templates/codegen/init_h.inja"
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\VerifyGlobs.cmake:3078:  "C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/resources/templates/codegen/module_registry_cpp.inja"
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\VerifyGlobs.cmake:3079:  "C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/resources/templates/codegen/pch_h.inja"
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\VerifyGlobs.cmake:3080:  "C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/resources/templates/codegen/register_cpp.inja"
+tools\rexglue-sdk\out\build\win-amd64\CMakeFiles\VerifyGlobs.cmake:3081:  "C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/resources/templates/codegen/sources_cmake.inja"
+tools\rexglue-sdk\out\build\win-amd64\cmake_install.cmake:87:  include("C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/build/win-amd64/src/codegen/cmake_install.cmake")
+tools\rexglue-sdk\out\build\win-amd64\cmake_install.cmake:281:    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/win-amd64/Release/rexglue.exe")
+tools\rexglue-sdk\out\build\win-amd64\cmake_install.cmake:282:    if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/rexglue.exe" AND
+tools\rexglue-sdk\out\build\win-amd64\cmake_install.cmake:283:       NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/rexglue.exe")
+tools\rexglue-sdk\out\build\win-amd64\cmake_install.cmake:285:        execute_process(COMMAND "C:/Program Files/LLVM/bin/llvm-strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/rexglue.exe")
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:284:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/bin/rexglue.exe
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:303:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/analysis_errors.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:304:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/analyze.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:305:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/binary_view.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:306:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/codegen.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:307:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/codegen_context.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:308:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/codegen_writer.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:309:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/code_emitter.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:310:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/code_region.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:311:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/config.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:312:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/function_graph.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:313:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/function_node.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:314:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/function_scanner.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:315:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/function_types.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:316:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/manifest.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:317:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/output_partition.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:318:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/output_stamp.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:319:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/phases.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:320:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/progress_reporter.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:321:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/project_recompiler.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:322:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/sig_scanner.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:323:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/template_registry.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:324:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/test_support.h
+tools\rexglue-sdk\out\build\win-amd64\install_manifest.txt:325:C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/install/win-amd64/include/rex/codegen/vtable_scanner.h
+tools\rexglue-sdk\out\build\win-amd64\src\codegen\cmake_install.cmake:1:# Install script for directory: C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/src/codegen
+tools\rexglue-sdk\out\build\win-amd64\src\codegen\cmake_install.cmake:43:  file(WRITE "C:/Users/gabrielzx/Desktop/vig8/tools/rexglue-sdk/out/build/win-amd64/src/codegen/install_local_manifest.txt"
+tools\rexglue-sdk\out\install\win-amd64\lib\cmake\rexglue\rexglueTargets-release.cmake:112:  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/bin/rexglue.exe"
+tools\rexglue-sdk\out\install\win-amd64\lib\cmake\rexglue\rexglueTargets-release.cmake:116:list(APPEND _cmake_import_check_files_for_rex::rexglue "${_IMPORT_PREFIX}/bin/rexglue.exe" )
+tools\rexglue-sdk\README.md:58:- [XenonRecomp](https://github.com/hedge-dev/XenonRecomp) - For pioneering the modern static recompilation approach for Xbox 360. A lot of the codegen analysis logic and instruction translations are based on their work. Thank you!
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:1:# Codegen library - PPC to C++ recompiler
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:4:set(CODEGEN_CORE_SOURCES
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:5:    codegen.cpp
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:6:    codegen_flags.cpp
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:10:    codegen_writer.cpp
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:21:    codegen_context.cpp
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:34:set(CODEGEN_PPC_SOURCES
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:41:set(CODEGEN_BUILDER_SOURCES
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:83:add_library(rexcodegen STATIC
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:84:    ${CODEGEN_CORE_SOURCES}
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:85:    ${CODEGEN_PPC_SOURCES}
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:86:    ${CODEGEN_BUILDER_SOURCES}
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:88:add_library(rex::codegen ALIAS rexcodegen)
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:89:add_dependencies(rexcodegen embed_templates)
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:91:rex_target_pch(rexcodegen <rex/codegen/function_types.h>)
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:93:target_include_directories(rexcodegen
+tools\rexglue-sdk\src\codegen\CMakeLists.txt:106:target_link_libraries(rexcodegen
+tools\rexglue-sdk\src\graphics\CMakeLists.txt:148:        GenericCodeGen
+tools\rexglue-sdk\src\rexglue\CMakeLists.txt:7:    commands/codegen_command.cpp
+tools\rexglue-sdk\src\rexglue\CMakeLists.txt:24:        rexcodegen
+tools\rexglue-sdk\tests\unit\CMakeLists.txt:19:    codegen/codegen_writer_test.cpp
+tools\rexglue-sdk\tests\unit\CMakeLists.txt:20:    codegen/output_partition_test.cpp
+tools\rexglue-sdk\tests\unit\CMakeLists.txt:21:    codegen/output_stamp_test.cpp
+tools\rexglue-sdk\tests\unit\CMakeLists.txt:36:    rexcodegen
+tools\rexglue-sdk\thirdparty\catch2\docs\release-notes.md:946:* Worked around IBM XL's codegen bug (#1907)
+tools\rexglue-sdk\thirdparty\CMakeLists.txt:210:        set(LOADER_CODEGEN OFF CACHE BOOL "" FORCE)
+tools\rexglue-sdk\thirdparty\fmt\doc\ChangeLog-old.md:2417:- Worked around a broken `__builtin_clz` in clang with MS codegen
+tools\rexglue-sdk\thirdparty\glslang\glslang\CMakeLists.txt:48:# GenericCodeGen
+tools\rexglue-sdk\thirdparty\glslang\glslang\CMakeLists.txt:50:add_library(GenericCodeGen STATIC
+tools\rexglue-sdk\thirdparty\glslang\glslang\CMakeLists.txt:51:    GenericCodeGen/CodeGen.cpp
+tools\rexglue-sdk\thirdparty\glslang\glslang\CMakeLists.txt:52:    GenericCodeGen/Link.cpp)
+tools\rexglue-sdk\thirdparty\glslang\glslang\CMakeLists.txt:53:set_property(TARGET GenericCodeGen PROPERTY POSITION_INDEPENDENT_CODE ON)
+tools\rexglue-sdk\thirdparty\glslang\glslang\CMakeLists.txt:54:set_property(TARGET GenericCodeGen PROPERTY FOLDER glslang)
+tools\rexglue-sdk\thirdparty\glslang\glslang\CMakeLists.txt:141:target_link_libraries(MachineIndependent PRIVATE OGLCompiler OSDependent GenericCodeGen)
+tools\rexglue-sdk\thirdparty\glslang\glslang\CMakeLists.txt:191:    source_group("GenericCodeGen" REGULAR_EXPRESSION "GenericCodeGen/*")
+tools\rexglue-sdk\thirdparty\glslang\glslang\CMakeLists.txt:208:        install(TARGETS glslang MachineIndependent GenericCodeGen
+tools\rexglue-sdk\thirdparty\moltenvk\Docs\Whats_New.md:828:    - Attempt more optimal codegen for `OpCompositeInsert`.
+tools\rexglue-sdk\thirdparty\moltenvk\Docs\Whats_New.md:1413:   - Clean up conditional branch codegen.
+tools\rexglue-sdk\thirdparty\sdl3\CMakeLists.txt:2188:    # Prevent codegen that would use the VC runtime libraries.
+tools\rexglue-sdk\thirdparty\tomlplusplus\CHANGELOG.md:526:-   improved unicode-related codegen
+tools\rexglue-sdk\thirdparty\vulkan-loader\BUILD.md:223:A helper CMake target `loader_codegen` is also provided to simplify the invocation of `scripts/generate_source.py`.
+tools\rexglue-sdk\thirdparty\vulkan-loader\BUILD.md:225:Note: By default this helper target is disabled. To enable it, add `-D LOADER_CODEGEN=ON`
+tools\rexglue-sdk\thirdparty\vulkan-loader\BUILD.md:229:cmake -S . -B build -D LOADER_CODEGEN=ON
+tools\rexglue-sdk\thirdparty\vulkan-loader\BUILD.md:230:cmake --build . --target loader_codegen
+tools\rexglue-sdk\thirdparty\vulkan-loader\BUILD.md:258:| LOADER_CODEGEN                  | All           | `OFF`   | Creates a helper CMake target to generate code.                                                                                                                                   |
+tools\rexglue-sdk\thirdparty\vulkan-loader\CMakeLists.txt:294:option(LOADER_CODEGEN "Enable vulkan loader code generation")
+tools\rexglue-sdk\thirdparty\vulkan-loader\CMakeLists.txt:295:if(LOADER_CODEGEN)
+tools\rexglue-sdk\thirdparty\vulkan-loader\CMakeLists.txt:297:    add_custom_target(loader_codegen
 
 C:\Users\gabrielzx\Desktop\vig8>
